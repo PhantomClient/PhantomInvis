@@ -1,0 +1,23 @@
+package phantom.module.impl;
+
+import org.lwjgl.input.Keyboard;
+
+import phantom.Client;
+import phantom.module.Module;
+
+public class HUD extends Module {
+
+	public HUD() {
+		super("HUD", Keyboard.KEY_UP, Module.Cat.Render);
+	}
+	@Override
+	public void onGuiRender() {
+		int y = 12;
+		for(Module m : Client.getModuleManager().modules) {
+			if(m.isEnabled()) {
+				mc.fontRendererObj.drawStringWithShadow(m.getName(), 2, y, -1);
+				y += 12;
+			}
+		}
+	}
+}
