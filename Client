@@ -1,0 +1,20 @@
+package phantom;
+
+import org.lwjgl.opengl.Display;
+
+import phantom.module.ModuleManager;
+
+public class Client {
+	public static final String name = "Phantom";
+	public static final String version = "b1";
+	public static ModuleManager modmanager;
+	
+	public Client() {
+		modmanager = new ModuleManager();
+		Display.setTitle(name + " " + version);
+	}
+	
+	public static ModuleManager getModuleManager() {
+		return modmanager;
+	}
+}
