@@ -1,0 +1,104 @@
+package phantom.module;
+
+import net.minecraft.client.Minecraft;
+import phantom.utils.Timer;
+
+public class Module implements Events {
+	public enum Cat {
+		Player,Render
+	}
+
+	public static Timer toggletimer = new Timer();
+
+	public boolean enabled = false;
+	public String name;
+
+	public int keybind;
+	public Cat type;
+	public Minecraft mc = Minecraft.getMinecraft();
+	
+	public Module(String name, int keybind, Module.Cat type) {
+		this.name = name;
+		this.keybind = keybind;
+		this.type = type;
+	}
+	
+	public void toggle() {
+		if(!enabled) {
+		onEnable();
+		enabled = true;
+		} else {
+			onDisable();
+			enabled = false;
+		}
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public int getKeybind() {
+		return keybind;
+	}
+
+
+	public void setKeybind(int keybind) {
+		this.keybind = keybind;
+	}
+
+
+	public Cat getType() {
+		return type;
+	}
+
+
+	public void setType(Cat type) {
+		this.type = type;
+	}
+
+	@Override
+	public void onEnable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDisable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onGuiRender() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPreUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPostUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onRender() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
