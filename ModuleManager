@@ -1,0 +1,29 @@
+package phantom.module;
+
+import java.util.ArrayList;
+
+import org.lwjgl.input.Keyboard;
+
+import phantom.module.impl.*;
+
+public class ModuleManager {
+	public static ArrayList<Module> modules = new ArrayList<Module>();
+	
+	public ModuleManager() {
+		add(new Sprint());
+		add(new HUD());
+		modules.get(1).enabled = true;
+//		add(new ChestStealer());
+	}
+	public void add(Module m) {
+		modules.add(m);
+		
+	}
+	public void update() {
+		for(Module m : modules) {
+			if(Keyboard.isKeyDown(m.getKeybind()) && m.toggletimer.check(250)) {
+				m.toggle();
+				m.toggletimer.reset();
+			}
+		}
+	}
