@@ -1,0 +1,10 @@
+package phantom.module;
+
+public interface Events {
+	public void onEnable();
+	public void onDisable();
+	public void onGuiRender();
+	public void onPreUpdate();
+	public void onPostUpdate();
+	public void onRender();
+}
